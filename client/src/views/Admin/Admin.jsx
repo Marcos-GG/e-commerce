@@ -17,6 +17,43 @@ const Admin = () => {
     dispatch(getProductsAll());
   }, []);
 
+  useEffect(() => {
+    if (AllComments !== null) {
+      setIsLoading(false);
+    } else {
+      setIsLoading(true);
+    }
+  }, [AllComments]);
+
+  console.log(AllComments);
+
+  const [commentsOrdenados, setCommentsOrdenados] = useState();
+
+  useEffect(() => {
+    const orderedArray = AllComments.sort((a, b) => {
+      // Obtenemos el tiempo de creación de la última respuesta si hay respuestas, de lo contrario obtenemos el tiempo de creación del comentario
+      const ultimoTiempoRespuestaA =
+        a.Answers.length > 0
+          ? a.Answers[a.Answers.length - 1].createdAt
+          : a.createdAt;
+      const ultimoTiempoRespuestaB =
+        b.Answers.length > 0
+          ? b.Answers[b.Answers.length - 1].createdAt
+          : b.createdAt;
+
+      // Comparamos los tiempos de creación de la última respuesta o del comentario
+      if (ultimoTiempoRespuestaA > ultimoTiempoRespuestaB) {
+        return 1;
+      } else if (ultimoTiempoRespuestaA < ultimoTiempoRespuestaB) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+
+    setCommentsOrdenados(orderedArray);
+  }, [AllComments]);
+
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -46,7 +83,7 @@ const Admin = () => {
               zIndex: -1,
             }}
           />
-          <Comments comments={AllComments} />
+          <Comments comments={commentsOrdenados} />
         </Box>
       )}
     </Box>

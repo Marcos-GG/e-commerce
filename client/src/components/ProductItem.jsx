@@ -29,9 +29,10 @@ const ProductItem = ({
   }, [currentPath, enDetail]);
 
   const isLTE321 = useMediaQuery("(max-width:321px)");
-  const isLTE373 = useMediaQuery("(max-width:373px)");
+  const isLTE417 = useMediaQuery("(max-width:417px)");
   const isLTE426 = useMediaQuery("(max-width:442px)");
-  const isLTE490 = useMediaQuery("(max-width:490px)");
+  const isLTE496 = useMediaQuery("(max-width:496px)");
+  const isLTE766 = useMediaQuery("(max-width:766px)");
   const isLTE918 = useMediaQuery("(max-width:918px)");
 
   const handleBoxClick = () => {
@@ -44,24 +45,36 @@ const ProductItem = ({
   return (
     <Box
       sx={{
-        margin: productAdmin ? "5px" : isLTE918 ? "0px" : "10px",
-        marginY: isLTE426 ? "8px" : isLTE490 ? "8px" : "",
+        margin: productAdmin
+          ? "5px"
+          : isLTE417
+          ? ""
+          : isLTE496
+          ? "3px"
+          : isLTE918
+          ? "10px"
+          : "10px",
+        marginY: isLTE426 ? "8px" : isLTE496 ? "8px" : "",
         width: enDetail
           ? "10rem"
           : isLTE321
-          ? "13rem"
-          : isLTE373
+          ? "12rem"
+          : isLTE417
           ? "9.4rem"
-          : isLTE490
-          ? "11rem"
+          : isLTE496
+          ? "11.8rem"
+          : isLTE766
+          ? "13rem"
           : "12rem",
         height: productAdmin
           ? "15rem"
           : enDetail
           ? "15rem"
-          : isLTE490
-          ? "16.5rem"
-          : "17rem",
+          : isLTE496
+          ? "16.8rem"
+          : isLTE766
+          ? "17rem"
+          : " 17rem",
         position: "relative",
         cursor: "pointer",
         transition: "0.1s",
@@ -78,7 +91,17 @@ const ProductItem = ({
       <Box p={2} sx={{}}>
         <Box
           width={1}
-          height={isLTE321 ? "9rem" : "8rem"}
+          height={
+            isLTE321
+              ? "8.5rem"
+              : isLTE417
+              ? "7.8rem"
+              : isLTE496
+              ? "8.8rem"
+              : isLTE766
+              ? "9rem"
+              : "8rem"
+          }
           sx={{
             display: "flex",
             justifyContent: "center",
@@ -96,7 +119,7 @@ const ProductItem = ({
               overflow: "hidden",
               textOverflow: "ellipsis",
               lineHeight: "30px",
-              fontSize: enDetail ? "15.5px" : isLTE490 ? "17.5px" : "19px",
+              fontSize: enDetail ? "15.5px" : isLTE496 ? "17.5px" : "19px",
             }}
           >
             {product?.title}

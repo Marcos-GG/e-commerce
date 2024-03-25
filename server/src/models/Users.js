@@ -13,6 +13,11 @@ module.exports = (sequelize) => {
       name: {
         type: DataTypes.STRING,
         allowNull: true,
+        validate: {
+          len: {
+            args: [2, 13],
+          },
+        },
       },
 
       email: {
@@ -23,6 +28,11 @@ module.exports = (sequelize) => {
       lastname: {
         type: DataTypes.STRING,
         allowNull: true,
+        validate: {
+          len: {
+            args: [2, 12],
+          },
+        },
       },
 
       password: {
@@ -41,6 +51,11 @@ module.exports = (sequelize) => {
       phone: {
         type: DataTypes.STRING,
         allowNull: true,
+        validate: {
+          is: {
+            args: /^[0-9]+$/,
+          },
+        },
       },
 
       birthDate: {

@@ -53,6 +53,7 @@ function DetailProduct({ product, formularioCreacion }) {
   const navigate = useNavigate();
 
   const productId = useSelector((state) => state.products.productId);
+  console.log(productId, "dasdas");
 
   const products = useSelector((state) => state.products.products);
 
@@ -230,7 +231,7 @@ function DetailProduct({ product, formularioCreacion }) {
               <Box
                 component="img"
                 src={fotoPrincipal}
-                alt={product?.title || productId?.title}
+                alt={productId?.title}
                 sx={{
                   minWidth: product ? (isLTE768 ? "17rem" : "12rem") : "18rem",
                   maxWidth: product
@@ -309,7 +310,7 @@ function DetailProduct({ product, formularioCreacion }) {
                     gap: "5px",
                   }}
                 >
-                  {liked ? (
+                  {liked && !product ? (
                     <ThumbUpAltIcon
                       onClick={() => handleClickLike(productId?.id)}
                       sx={{ cursor: "pointer" }}
@@ -362,13 +363,18 @@ function DetailProduct({ product, formularioCreacion }) {
                   component="p"
                   sx={{ ml: isLTE454 ? "25px" : "15px", my: "5px" }}
                 >
-                  {product?.category || productId?.category} para{" "}
+                  {product?.category || productId?.category}{" "}
+                  {product?.category ||
+                  (productId?.category && product?.gender) ||
+                  productId?.gender
+                    ? "para"
+                    : ""}{" "}
                   {product?.gender || productId?.gender}
                 </Typography>
 
                 <Typography variant="h4" mt={isLTE768 ? 1 : 2.5} ml={2}>
                   <ProductPrice
-                    price={product?.price || productId?.price || "$0"}
+                    price={product?.price || productId?.price || 0}
                     style={priceStyle}
                   />
                 </Typography>
@@ -390,7 +396,7 @@ function DetailProduct({ product, formularioCreacion }) {
                       fontSize: product ? "13px" : isLTE454 ? "15px" : "18px",
                       mb: "10px",
                     }}
-                    onClick={() => handleClickComprar()}
+                    onClick={() => !product && handleClickComprar()}
                   >
                     COMPRAR
                   </Button>

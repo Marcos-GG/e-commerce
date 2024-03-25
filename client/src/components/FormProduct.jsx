@@ -144,36 +144,6 @@ const FormProduct = () => {
                   my: isLTE500 ? "2px" : "3px",
                 }}
               >
-                {error?.title && (
-                  <Typography
-                    sx={{ fontSize: "13px", color: "red", mb: "-10px" }}
-                  >
-                    {error.title}
-                  </Typography>
-                )}
-                <TextField
-                  type="text"
-                  name="title"
-                  value={form.title}
-                  onChange={formHandler}
-                  placeholder="Título"
-                  InputProps={{
-                    sx: {
-                      bgcolor: "white",
-                      width: "100%",
-                      mt: "10px",
-                      height: "2.5rem",
-                    },
-                  }}
-                  sx={{ width: "100%" }}
-                />
-              </Box>
-              <Box
-                sx={{
-                  width: isLTE1300 ? "94%" : isLTE1700 ? "90%" : "80%",
-                  my: isLTE500 ? "2px" : "3px",
-                }}
-              >
                 <Box>
                   {error?.image1 && (
                     <Typography
@@ -205,6 +175,7 @@ const FormProduct = () => {
                   </IconButton>
                 </Box>
               </Box>
+
               {image2 && (
                 <Box
                   sx={{
@@ -317,6 +288,38 @@ const FormProduct = () => {
                   />
                 </Box>
               )}
+
+              <Box
+                sx={{
+                  width: isLTE1300 ? "94%" : isLTE1700 ? "90%" : "80%",
+                  my: isLTE500 ? "2px" : "3px",
+                }}
+              >
+                {error?.title && (
+                  <Typography
+                    sx={{ fontSize: "13px", color: "red", mb: "-10px" }}
+                  >
+                    {error.title}
+                  </Typography>
+                )}
+                <TextField
+                  type="text"
+                  name="title"
+                  value={form.title}
+                  onChange={formHandler}
+                  placeholder="Título"
+                  InputProps={{
+                    sx: {
+                      bgcolor: "white",
+                      width: "100%",
+                      mt: "10px",
+                      height: "2.5rem",
+                    },
+                  }}
+                  sx={{ width: "100%" }}
+                />
+              </Box>
+
               <Box
                 sx={{
                   width: isLTE1300 ? "94%" : isLTE1700 ? "90%" : "80%",

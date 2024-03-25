@@ -232,12 +232,12 @@ const Filtros = ({ open, handleDrawerToggle }) => {
               mt: isLTE640 ? "10px" : "20px",
               gap: "20px",
             }}
-            onClick={() => handleApplyFilter()}
           >
             <Button
               variant="contained"
               disabled={estadoBoton}
               sx={{ mt: "10px", width: "12rem" }}
+              onClick={() => handleApplyFilter()}
             >
               Aplicar filtros
             </Button>

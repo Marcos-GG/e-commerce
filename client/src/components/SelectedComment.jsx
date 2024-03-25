@@ -7,7 +7,6 @@ import KeyboardReturnIcon from "@mui/icons-material/KeyboardReturn";
 const SelectedComment = ({
   selectedComment,
   isLTE430,
-
   scrollContainerRef,
   userId,
   handleCleanComment,
@@ -29,14 +28,13 @@ const SelectedComment = ({
     <Box
       sx={{
         width: "100%",
-        height: isLTE430 ? `calc(100vh - 3.2rem)` : "45.59rem",
+        height: isLTE768 ? `calc(100vh - 4.7rem )` : "45.59rem",
         borderRadius: isLTE430 ? "" : " 0 10px 10px 0 ",
         backgroundColor: "#f5f5f5",
         boxShadow: "10px 10px 15px #888888;",
         backgroundImage: 'url("/logoblanco.svg")',
         backgroundSize: "contain",
         backgroundPosition: "center",
-        overflowY: "auto",
         backgroundRepeat: "no-repeat",
         position: "relative",
       }}
@@ -66,8 +64,9 @@ const SelectedComment = ({
         sx={{
           display: "flex",
           flexDirection: "column",
+          justifyContent: "space-between",
           width: "100%",
-          height: "95%",
+          height: isLTE430 ? "100%" : "95%",
         }}
       >
         <Box
@@ -75,8 +74,8 @@ const SelectedComment = ({
           sx={{
             display: "flex",
             flexDirection: "column",
-            height: isLTE425 ? "100%" : "43rem",
-            maxHeight: isLTE430 ? "100%" : "41rem", // Establecer la altura máxima para activar el scroll
+            height: isLTE765 ? "100%" : "100%",
+            maxHeight: isLTE765 ? "100hv" : "100vh", // Establecer la altura máxima para activar el scroll
             overflowY: "auto", // Habilitar el scroll vertical cuando el contenido excede la altura máxima
           }}
         >
@@ -117,6 +116,7 @@ const SelectedComment = ({
                 boxSizing: "border-box",
                 fontSize: isLTE425 && "15.5px",
                 mt: isLTE425 && "-6px",
+                height: "100%",
               }}
             >
               {selectedComment?.text}
@@ -188,6 +188,7 @@ const SelectedComment = ({
           sx={{
             bgcolor: "#F5F5F5",
             display: "flex",
+            mt: "5px",
             alignItems: "center",
             boxShadow: "0px -10px 15px #888888;",
             position: isLTE430 & "fixed",

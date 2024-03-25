@@ -16,12 +16,15 @@ const getProductController = async (id, search, page) => {
           {
             model: Comment,
             include: [
-              { model: User, attributes: ["name", "lastname", "admin"] },
+              {
+                model: User,
+                attributes: ["name", "lastname", "admin", "active"],
+              },
               {
                 model: Answer,
                 include: {
                   model: User,
-                  attributes: ["name", "lastname", "admin"],
+                  attributes: ["name", "lastname", "admin", "active"],
                 },
               },
             ],

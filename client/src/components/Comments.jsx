@@ -27,6 +27,7 @@ const Comments = ({ comments }) => {
   const isLessThanOrEqual1662 = useMediaQuery(theme.breakpoints.down(1662));
 
   const products = useSelector((state) => state.products.products);
+  console.log(comments);
 
   const token = localStorage.getItem("token");
   const decodeToken = jwtDecode(token);
@@ -60,7 +61,7 @@ const Comments = ({ comments }) => {
         display: "flex",
         justifyContent: isLTE765 ? "" : "center",
         flexDirection: isLTE765 ? "column" : "row",
-        mt: isLTE430 ? "" : "20px",
+        mt: isLTE430 ? "" : isLTE765 ? "" : "20px",
       }}
     >
       <Box
@@ -70,7 +71,11 @@ const Comments = ({ comments }) => {
           background:
             "linear-gradient(0deg, rgba(1,46,84,1) 0%, rgba(0,205,254,1) 100%)",
           height:
-            isLTE430 && !selectedComment ? `calc(100vh - 3.2rem)` : "45.59rem",
+            isLTE430 && !selectedComment
+              ? `calc(100vh - 3.2rem)`
+              : isLTE765
+              ? `calc(100vh - 3.2rem)`
+              : "45.59rem",
           borderRadius: isLTE430 ? "" : "8px 0 0 8px",
           overflow: "auto",
           boxShadow: "14px 10px 15px #888888;",
@@ -84,17 +89,28 @@ const Comments = ({ comments }) => {
               display: "flex",
               height: isLTE430 ? "4.3rem" : "4.5rem",
               width: "100%",
+              mt: "10px",
               flexDirection: "column",
               paddingX: "10px",
               position: "relative", // posición relative para que la línea divisoria pueda ser posicionada de forma absoluta
               "&:not(:last-child)": {
                 marginBottom: isLTE430 ? "" : "10px",
               },
+              animation:
+                comment.id === selectedComment?.id
+                  ? "slide-down 0.3s ease"
+                  : "none",
             }}
             onClick={() => handleSelectedComment(comment)}
           >
             <Box sx={{ alignSelf: "flex-end" }}>
-              <FormatoHora hora={comment.createdAt} />
+              <FormatoHora
+                hora={
+                  comment?.Answers.length > 0
+                    ? comment?.Answers?.slice(-1)[0]?.createdAt
+                    : comment?.createdAt
+                }
+              />
             </Box>
 
             <Box

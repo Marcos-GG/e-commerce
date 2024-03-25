@@ -58,9 +58,9 @@ const CommentDesplegable = ({ productId, userId }) => {
               Comentarios de la comunidad
             </Typography>
             <Box sx={{ overflow: "auto", maxHeight: "87%" }}>
-              {productId.Comments.map((comment) => (
+              {productId?.Comments.map((comment) => (
                 <Box key={comment.id}>
-                  {comment.userId !== userId && (
+                  {comment?.userId !== userId && comment?.User.active && (
                     <Box
                       sx={{
                         mx: "30px",

@@ -24,6 +24,10 @@ module.exports = (sequelize) => {
               throw new Error("El titulo debe contener texto válido"); //!
             }
           },
+          len: {
+            args: [5, 36], // Longitud entre 5 y 36 caracteres
+            msg: "El título debe tener entre 5 y 36 caracteres.",
+          },
         },
       },
 

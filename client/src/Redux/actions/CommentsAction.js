@@ -21,6 +21,8 @@ export const allComments = () => {
         config
       );
 
+      console.log(response);
+
       dispatch({ type: ALL_COMMENTS, payload: response.data });
     } catch (error) {
       return error;

@@ -66,6 +66,7 @@ export const getProductId = (id) => {
       `${import.meta.env.VITE_LOCALHOST}products/${id}`,
       config
     );
+    console.log(response.data, "asdasd");
 
     dispatch({ type: GET_PRODUCT_ID, payload: response.data.idProduct });
     dispatch({ type: RELATED_PRODUCTS, payload: response.data.relacionados });
