@@ -25,8 +25,6 @@ const postAnswerController = async ({ userId, commentId, answer }) => {
     ],
   });
 
-  console.log(answerCompleto, "anasheee");
-
   return answerCompleto;
 };
 

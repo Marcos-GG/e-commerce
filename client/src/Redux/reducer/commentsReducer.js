@@ -10,15 +10,10 @@ const reducer = (state = initialState, action) => {
       return { ...state, comments: action.payload }; // Reemplaza los comentarios existentes con los nuevos
     }
     case POST_ANSWER: {
-      console.log(action.payload);
-
-      console.log(state);
-
       return {
         ...state,
         comments: state.comments.map((comment) => {
           if (action.payload.Comment.id == comment.id) {
-            console.log("asdasdasd");
             return {
               ...comment,
               Answers: [...comment.Answers, action.payload],

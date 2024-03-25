@@ -5,12 +5,7 @@ import {
   ALL_COMMENTS,
   POST_COMMENT,
   POST_ANSWER,
-  // POST_ANSWER_COMMENT_ID,
 } from "../actionsTypes/CommentsTypes";
-// import {
-//   POST_COMMENT_PRODUCT_ID,
-//   POST_ANSWER_PRODUCT_ID,
-// } from "../actionsTypes/ProductsActionTypes";
 
 export const allComments = () => {
   return async function (dispatch) {
@@ -20,8 +15,6 @@ export const allComments = () => {
         `${import.meta.env.VITE_LOCALHOST}comments`,
         config
       );
-
-      console.log(response);
 
       dispatch({ type: ALL_COMMENTS, payload: response.data });
     } catch (error) {

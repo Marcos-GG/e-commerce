@@ -5,8 +5,6 @@ const getProductHandler = async (req, res) => {
     const { id } = req.params;
     const { search, page } = req.query;
 
-    console.log("áasdasdasd");
-
     if (id) {
       const idProduct = await getProductController(id, search);
       if (!idProduct) throw new Error("El producto no existe.");

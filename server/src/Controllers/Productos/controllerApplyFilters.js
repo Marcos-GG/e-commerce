@@ -29,10 +29,8 @@ const controllerApplyFilters = async ({
     }
   }
 
-  // Array vacío para las opciones de ordenamiento
   let orderOptions = [];
   if (morePopular) {
-    // Agregar la opción de ordenar por 'likes' de mayor a menor si morePopular es true
     orderOptions.push(["likes", "DESC"]);
   }
 
@@ -47,7 +45,6 @@ const controllerApplyFilters = async ({
   if (productosFiltrados.length === 0)
     throw new Error("No se encontraron productos con los filtros aplicados");
 
-  console.log(productosFiltrados.length, "filtrado");
   return { productosFiltrados, totalProducts: productosFiltrados.length };
 };
 

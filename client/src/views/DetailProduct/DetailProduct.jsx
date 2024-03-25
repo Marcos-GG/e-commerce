@@ -45,7 +45,6 @@ function DetailProduct({ product, formularioCreacion }) {
 
   const location = useLocation();
   const currentPath = location.pathname;
-  console.log(currentPath, "dasdas");
 
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -53,7 +52,6 @@ function DetailProduct({ product, formularioCreacion }) {
   const navigate = useNavigate();
 
   const productId = useSelector((state) => state.products.productId);
-  console.log(productId, "dasdas");
 
   const products = useSelector((state) => state.products.products);
 
@@ -113,7 +111,6 @@ function DetailProduct({ product, formularioCreacion }) {
       (like) => like.userId === userId
     );
     const likesTotales = productId.likes;
-    console.log(likesTotales);
 
     setTotalLikes(likesTotales);
 

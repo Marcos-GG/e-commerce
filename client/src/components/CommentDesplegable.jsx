@@ -23,8 +23,6 @@ const CommentDesplegable = ({ productId, userId }) => {
     }
   };
 
-  console.log(productId.Comments);
-
   return (
     <Box sx={{ width: "100%" }}>
       {productId?.Comments &&

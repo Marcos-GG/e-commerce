@@ -9,7 +9,6 @@ const client = new MercadoPagoConfig({
 const paymentHandler = async (req, res) => {
   try {
     const { products, userId } = req.body;
-    console.log(products, "jaa");
 
     const items = [];
 
@@ -23,7 +22,6 @@ const paymentHandler = async (req, res) => {
         unit_price: Number(product.price),
       });
     }
-    console.log(items, "asdasda");
 
     const bodyProducts = {
       items,
@@ -37,8 +35,6 @@ const paymentHandler = async (req, res) => {
       notification_url: "https://1bhml602-38621.brs.devtunnels.ms/webhook",
       additional_info: userId,
     };
-
-    console.log(bodyProducts, "body");
 
     const preference = new Preference(client);
     const response = await preference.create({ body: bodyProducts });

@@ -12,8 +12,6 @@ const DesactivatedProducts = () => {
     (state) => state.products.productsFilteredFalse
   );
 
-  console.log(products, "jajsdjasda");
-
   useEffect(() => {
     dispatch(getProductsAll());
   }, [dispatch]);

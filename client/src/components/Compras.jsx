@@ -21,11 +21,6 @@ const Compras = () => {
 
   const recibos = useSelector((state) => state.products.compras);
 
-  console.log(recibos, "recibos");
-
-  //   const [productCount, setProductCount] = useState({});
-
-  // Objeto para rastrear la cantidad de veces que aparece cada producto por id_compra
   const productCountByCompra = {};
 
   recibos?.compras?.forEach((recibo) => {
@@ -37,8 +32,6 @@ const Compras = () => {
 
     productCountByCompra[recibo.id] = countProducts;
   });
-
-  console.log(productCountByCompra, "aa");
 
   const stylePrice = {
     fontSize: "22px",
@@ -87,7 +80,6 @@ const Compras = () => {
               width: "90%",
               display: "flex",
               flexWrap: "wrap",
-              // o Tip: Puedes agregar propiedades como alignContent o alignItems si necesitas ajustar la alineación vertical
             }}
           >
             {recibos &&
@@ -95,7 +87,7 @@ const Compras = () => {
                 <Box
                   key={recibo.id}
                   sx={{
-                    m: "1rem", // Reduce el margen para que los elementos estén más cercanos
+                    m: "1rem",
                     width: "22rem",
                     height: "24rem",
                     borderRadius: "4px",

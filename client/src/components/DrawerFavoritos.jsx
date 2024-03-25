@@ -35,21 +35,11 @@ const DrawerFavoritos = ({
 
   const dispatch = useDispatch();
 
-  // const token = localStorage.getItem("token");
-  // const decodeToken = jwtDecode(token);
-  // const userId = decodeToken.id;
-
   useEffect(() => {
     dispatch(getFavorites());
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // const liked = favoriteProducts.some(
-  //   (product) =>
-  //     product.Likes && product.Likes.some((like) => like.userId === userId)
-  // );
-  // console.log(liked, "liked");
 
   const handleClickAdd = (product) => {
     dispatch(addProduct(product));

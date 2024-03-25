@@ -4,7 +4,6 @@ const handlerCompras = async (req, res) => {
   try {
     const { id } = req.query;
 
-    console.log(id, "kdkaskdkas");
     const compras = await Compras.findAll({
       where: {
         userId: id,

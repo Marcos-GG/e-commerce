@@ -27,7 +27,6 @@ const Comments = ({ comments }) => {
   const isLessThanOrEqual1662 = useMediaQuery(theme.breakpoints.down(1662));
 
   const products = useSelector((state) => state.products.products);
-  console.log(comments);
 
   const token = localStorage.getItem("token");
   const decodeToken = jwtDecode(token);

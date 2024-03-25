@@ -125,7 +125,6 @@ const CompleteOutfits = ({
                 // to={`/detail/${product.id}`}
                 onClick={(e) => {
                   if (!formularioCreacion) {
-                    console.log("a");
                     e.preventDefault();
                     getProductId(product.id);
                     navigate(`/detail/${product.id}`);

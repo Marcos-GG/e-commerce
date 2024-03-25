@@ -25,8 +25,6 @@ const Admin = () => {
     }
   }, [AllComments]);
 
-  console.log(AllComments);
-
   const [commentsOrdenados, setCommentsOrdenados] = useState();
 
   useEffect(() => {
