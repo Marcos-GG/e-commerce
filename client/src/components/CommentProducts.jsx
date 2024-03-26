@@ -76,14 +76,14 @@ const CommentProducts = ({ productId }) => {
             sx={{
               width: "100%",
               mt: "5px",
+              overflow: "auto",
+              maxHeight: isLTE768 ? "3rem" : "3.8rem",
             }}
             InputProps={{
               sx: {
-                fontSize: "14px",
-                width: "100%",
-                height: "2.8rem",
-                mr: "15px",
                 textAlign: "center",
+                fontSize: isLTE768 ? "15px" : "18px",
+                overflow: "auto",
               },
             }}
           />

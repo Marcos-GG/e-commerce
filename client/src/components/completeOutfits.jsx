@@ -136,7 +136,8 @@ const CompleteOutfits = ({
                   src={product.image1}
                   alt={product.title}
                   style={{
-                    maxWidth: "100%",
+                    maxWidth: "23rem",
+                    width: "100%",
                     height: "auto",
                     objectFit: "contain",
                   }}

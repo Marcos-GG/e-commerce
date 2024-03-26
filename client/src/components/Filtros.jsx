@@ -106,7 +106,6 @@ const Filtros = ({ open, handleDrawerToggle }) => {
   const handleApplyFilter = () => {
     dispatch(apllyFilters(combinedFilters, 1));
   };
-
   return (
     <Box>
       {isLTE1000 ? (

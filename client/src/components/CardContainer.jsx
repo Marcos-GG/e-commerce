@@ -3,7 +3,6 @@ import { Box, useMediaQuery } from "@mui/material";
 import Card from "./Card";
 
 function CardContainer({ products }) {
-  const isLTE403 = useMediaQuery("(max-width:403px)");
   const isLTE490 = useMediaQuery("(max-width:490px)");
   const isLTE666 = useMediaQuery("(max-width:666px)");
   const isLTE707 = useMediaQuery("(max-width:707px)");
@@ -35,7 +34,7 @@ function CardContainer({ products }) {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: isLTE403 && "center",
+          justifyContent: isLTE769 && "center",
           gap: 2,
         }}
       >

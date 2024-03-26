@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 const Payment = () => {
   // inicializamos mercadopago
   initMercadoPago(import.meta.env.VITE_PUBLIC_KEY, {
-    //locale ( idioma de la integracion)
     locale: "es-AR",
   });
 
@@ -17,10 +16,7 @@ const Payment = () => {
   return (
     <Box>
       {preferenceId && (
-        <Wallet
-          initialization={{ preferenceId: preferenceId }}
-          // customization={{ texts: { valueProp: "hola" } }}
-        />
+        <Wallet initialization={{ preferenceId: preferenceId }} />
       )}
     </Box>
   );
