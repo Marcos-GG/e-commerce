@@ -68,11 +68,11 @@ const AnswerComment = ({ commentId, productId }) => {
           sx={{
             width: "100%",
             mx: "10px",
-            overflow: "hidden",
             maxHeight: isLTE768 ? "3rem" : "3.8rem",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            overflow: "auto",
           }}
         >
           <TextField
@@ -86,8 +86,8 @@ const AnswerComment = ({ commentId, productId }) => {
             sx={{
               width: "100%",
               mt: "5px",
+              m: "auto",
               overflow: "auto",
-              maxHeight: isLTE768 ? "3rem" : "3.8rem",
             }}
             InputProps={{
               sx: {
